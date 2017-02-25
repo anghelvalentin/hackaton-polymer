@@ -1,0 +1,14 @@
+[
+    {
+        "question": "What languages is written in c ?",
+        "answers": ["Java"]
+    },
+    {
+        "question": "What is the operator to check something is equal in javascript",
+        "answers": ["==", "==="]
+    },
+    {
+        "question": "How to make a website",
+        "answers": ["Use wordpress", "Learn html "]
+    }
+]

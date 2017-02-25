@@ -1,0 +1,67 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
+<dom-module id="my-questions">
+    <template>
+        <style>
+            :host{
+                display: block;
+                margin-bottom: 20px;
+            }
+
+            .question {
+                color: Black;
+                font-family: 'RobotoDraft', 'Roboto', sans-serif;
+                font-size: 18px;
+
+            }
+
+            li {
+                color: Black;
+            }
+
+            .btn {
+                color: Gray;
+            }
+        </style>
+
+        <div class="question">
+            <b>{{question}}</b>
+        </div>
+        <ul>
+            <template is="dom-repeat" items="{{answers}}">
+                <li>{{item}}</li>
+            </template>
+        </ul>
+        <paper-input label="Answer" id="answer"></paper-input>
+        <paper-button class="btn" on-click="_addAnswer">Add answer</paper-button>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'my-questions',
+            properties: {
+                question: {
+                    type: String,
+                    value: "Intrebare polymer ?",
+                    notify: true,
+                    reflectToAttribute: true
+                },
+                answers: {
+                    type: Array,
+                    value: [],
+                    notify: true,
+                    reflectToAttribute: true
+                }
+            },
+            _addAnswer: function () {
+                this.push("answers", this.$.answer.value);
+                this.$.answer.value = "";
+            }
+        });
+    </script>
+
+</dom-module>

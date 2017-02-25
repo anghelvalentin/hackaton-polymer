@@ -1,36 +1,49 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="my-questions.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 
 <dom-module id="my-view2">
-  <template>
-    <style include="shared-styles">
-      :host {
-        display: block;
+    <template>
+        <style include="shared-styles">
+            :host {
+                display: block;
 
-        padding: 10px;
-      }
-    </style>
+                padding: 10px;
+            }
 
-    <div class="card">
-      <div class="circle">2</div>
-      <h1>Question and Answers</h1>
+            .title {
+                color: gray;
+            }
+        </style>
 
-    </div>
-  </template>
 
-  <script>
-    Polymer({
-      is: 'my-view2',
-    });
-  </script>
+        <div class="card" id="forum">
+            <h1>Question and Answers</h1>
+            <my-questions question="What languages is written in c ?" answers='["Java"]'></my-questions>
+            <my-questions question="What is the operator to check something is equal in javascript"
+                          answers='["==", "==="]'></my-questions>
+            <my-questions question="How to make a website" answers='["Use wordpress", "Learn html "]'></my-questions>
+        </div>
+
+        <div class="card">
+            <h2 class="title">Add a new question</h2>
+            <paper-input id="newQuestion" label="Enter your question"></paper-input>
+            <paper-button raised on-click="_addquestion">Add question</paper-button>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'my-view2',
+            _addquestion: function () {
+                console.log(this.$.newQuestion.value);
+                var elementNou = document.createElement("my-questions");
+                elementNou.set("question", this.$.newQuestion.value);
+                console.log(elementNou);
+                this.$.forum.appendChild(elementNou);
+                this.$.newQuestion.value = "";
+            }
+        });
+    </script>
 </dom-module>
