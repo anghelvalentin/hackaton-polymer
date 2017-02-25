@@ -1,0 +1,20 @@
+[
+  {
+    "index": 0,
+    "title": "Intro",
+    "content": "HTML is the standard markup language for creating Web pages.HTML stands for Hyper Text Markup Language. HTML describes the structure of Web pages using markup",
+    "type": "simple"
+  },
+  {
+    "index":1,
+    "title": "Question time",
+    "content": "In which year html was released ? ",
+    "type": "grile",
+    "answers": [
+      "1992",
+      "1990",
+      "2005"
+    ],
+    "correctAnswer": "a"
+  }
+]

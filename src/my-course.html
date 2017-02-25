@@ -1,0 +1,26 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="my-slide.html">
+
+<dom-module id="my-course">
+    <template>
+        <my-slide></my-slide>
+        <paper-button raised>Next</paper-button>
+        <paper-button raised>Back</paper-button>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'my-course',
+            properties: {
+                pageNumber: {
+                    type: Number,
+                    value: -1,
+                    reflectToAttribute: true
+                }
+            }
+        });
+    </script>
+
+</dom-module>

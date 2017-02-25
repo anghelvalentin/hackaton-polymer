@@ -1,0 +1,40 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+
+<dom-module id="my-slide">
+    <template>
+        <style>
+            :host {
+                display: inline-block;
+            }
+        </style>
+        <div class="header">
+            {{title}}
+        </div>
+        <div class="content">
+            {{content}}
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'my-slide',
+            properties: {
+                title: {
+                    type: String,
+                    value: "Titlu"
+                },
+                content: {
+                    type: String,
+                    value: "Content"
+                },
+                index: {
+                    type: Number,
+                    reflectToAttribute: true
+                }
+
+            }
+        });
+    </script>
+
+</dom-module>

@@ -1,0 +1,38 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="my-slide.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+
+
+<dom-module id="my-html-course">
+    <template>
+        <iron-ajax url="/assets/html-course.json" auto last-response="{{slides}}"></iron-ajax>
+
+        <div>Html 5 course</div>
+        <iron-pages id="pages" attr-for-selected="index">
+            <template is="dom-repeat" items="{{slides}}">
+                <my-slide index="{{item.index}}" title="{{item.title}}" content="{{item.content}}"></my-slide>
+            </template>
+        </iron-pages>
+
+        <div class="controls layout horizontal justified">
+            <button on-tap="_goPrev">Prev</button>
+            <button on-tap="_goNext">Next</button>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'my-html-course',
+            _goPrev: function () {
+                this.$.pages.selectPrevious();
+            },
+            _goNext: function () {
+                this.$.pages.selectNext();
+            }
+        });
+    </script>
+
+</dom-module>

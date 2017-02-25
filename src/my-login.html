@@ -1,0 +1,33 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/google-signin/google-signin.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+<dom-module id="my-login">
+    <template>
+        <form action="http://httpbin.org/post" method="post">
+            <paper-input label="Username" value="{{username}}" autofocus required></paper-input>
+            <paper-input label="Password" value="{{password}}" required></paper-input>
+            <input type="text" name="username" value="{{username}}" hidden/>
+            <input type="text" name="password" value="{{password}}" hidden/>
+            <input type="submit"/>
+        </form>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'my-login',
+            properties: {
+                username: {
+                    type: String,
+                    notify: true
+                },
+                password: {
+                    type: String,
+                    notify: true
+                }
+            }
+        });
+    </script>
+
+</dom-module>
+
